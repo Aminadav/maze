@@ -1,3 +1,5 @@
+<meta name="viewport" content="width=device-width, initial-scale=1,max-scale=1" />
+
 <body style="font-family: arial;background-color:yellow;height:100vh" dir=rtl>
     <div style="font-size:30px;text-align: center;">
     המבוך של שירת שלב
@@ -17,6 +19,20 @@
     cellPadding=0>
     
 </table>
+<style>
+    center button {
+        padding:10px;
+    }
+    </style>
+<center>
+    <button onClick="keyDownDo('ArrowUp')"> למעלה ^</button>
+<br>
+<button onClick="keyDownDo('ArrowRight')"> < ימינה</button>
+<button onClick="keyDownDo('ArrowLeft')"> שמאלה &gt;</button>
+<br/>
+<button onClick="keyDownDo('ArrowDown')"> למטה V</button>
+
+</center>
 </body>
 <script>
 var levels=[]
@@ -520,20 +536,20 @@ function render() {
     table.innerHTML=x
     level.innerHTML=currentLevel
 }
-document.addEventListener("keydown",function(event){
+function keyDownDo(eventKey){
     var data=levels[currentLevel]
     meTopBefore=meTop
     meLeftBefore=meLeft
-    if(event.key=="ArrowDown") {
+    if(eventKey=="ArrowDown") {
         meTop++
     }
-    if(event.key=="ArrowUp") {
+    if(eventKey=="ArrowUp") {
         meTop--
     }
-    if(event.key=="ArrowRight") {
+    if(eventKey=="ArrowRight") {
         meLeft++
     }
-    if(event.key=="ArrowLeft") {
+    if(eventKey=="ArrowLeft") {
         meLeft--
     }
     if(meTop<0) start()
@@ -575,6 +591,9 @@ document.addEventListener("keydown",function(event){
     if(data[meTop][meLeft]===undefined) start()
     render()
 
+}
+document.addEventListener("keydown",function(event){
+    keyDownDo(event.key)
 })
 start()
 </script>
