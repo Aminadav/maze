@@ -575,23 +575,54 @@ function keyDownDo(eventKey){
         meLeft=meLeftBefore
     }
     if(data[meTop][meLeft]==4) {
-        var ans=prompt(questions[currentQuestion])
-        if(ans==questions[currentQuestion+1]) {
+        var quest=questions[currentQuestion]
+        var an=questions[currentQuestion+1]
+
+        var x1=Math.floor(Math.random()*10)
+        var x2=Math.floor(Math.random()*5)
+        var op=Math.floor(Math.random()*3)
+        if(op==0) {
+            quest = x1 +'+' + x2 + '='
+            an=x1+x2
+        }
+        if(op==1) {
+            if(x2>x1) {
+                temp=x1
+                x1=x2
+                x2=temp
+            }
+            quest = x1 +'-' + x2 + '='
+            an=x1-x2
+        }
+        if(op==2) {
+            quest = x1 +'X' + x2 + '='
+            an=x1*x2
+        }
+        while(true) {
+        var ans=prompt(quest)
+        if(ans==an) {
             var res=[
                 "יופי",
                 "מצויין",
+                "אדיר",
+                "כל הכבוד",
+                "תמשיכו כך ותגיעו רחוק",
+                " לא מפסיקים להפתיע",
+                "הגיע הזמן לפרוש בשיא",
+                "אלופים!"
             ]
             alert(res.sort(()=>Math.random()-0.5)[0])
+            break
         } else {
             var res=[
                 "תשובה מצויינת. אבל לא לשאלה הזו",
                 "כל הכבוד על הניסיון",
                 "ענית מהר מאוד, אבל לא מדוייק",
                 "יש תשובה יותר נכונה",
+                "אולי בכדרוגל אתם יותר טובים",
             ]
-            alert(res.sort(()=>Math.random()-0.5)[0])            
-            start()
-            return
+            alert(res.sort(()=>Math.random()-0.5)[0])                        
+        }
         }
         currentQuestion+=2
         if(currentQuestion==questions.length) {
