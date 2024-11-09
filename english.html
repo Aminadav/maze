@@ -39,6 +39,7 @@
     }
     </style>
 <center>
+    <br/>
     <button onClick="keyDownDo('ArrowUp')"> למעלה ^</button>
 <br>
 <button onClick="keyDownDo('ArrowRight')"> < ימינה</button>
@@ -527,7 +528,7 @@ function render() {
             let border=""
             let radios=''
             if(meLeft==iLeft && meTop==iTop) {                                
-                img="איש.jpg"
+                img="person.jpg"
             } else if(data[iTop][iLeft]=="1") {
                 bgColor="black"
             } else if(data[iTop][iLeft]=="4" || data[iTop][iLeft]=="2") {
@@ -536,9 +537,9 @@ function render() {
                 bgColor="skyblue"
                 radius='50%;'
             }
-            x+='<td width=20 height=20 bgColor=' + bgColor + '>'
+            x+='<td width=30 height=30 bgColor=' + bgColor + '>'
             if(img) {
-                x+='<img align=center height="20px" width="20px" src="איש.jpg">'
+                x+='<img align=center height="30px" width="30px" src="person.jpg">'
             }
             x+="</td>"
         }
